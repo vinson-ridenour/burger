@@ -1,0 +1,83 @@
+<img src="assets/img/burger.jpg" id="" alt="juicy burger" height="200" width="200">
+
+<div class="">
+    <h1>Hipster Burger Bar!</h1>
+    <ol>
+    {{#each burgers}}
+        {{#unless devoured}}
+        <li>
+            
+            {{burger_name}}
+
+            <form action="/{{this.id}}?_method=PUT" method="POST">
+            
+                <input type="hidden" name="devour" value="false">
+                <button type="submit">GET IN MY BELLY!</button>
+            
+            </form>
+        
+        </li>
+        {{/unless}}
+    {{/each}}
+    </ol>
+</div>
+
+<h2>Add a burger to devour:</h2>
+
+<form class="new-burger" action="/" method="POST">
+
+  <div class="form-group">
+    <label for="burger">Burger Name:</label>
+    <input type="text" id="new-burger" name="burger_name">
+  </div>
+
+  <button type="submit">Add Burger</button>
+</form>
+
+<div class="">
+	<h2>RIP Burgers!</h2>
+
+	<ol>
+	  {{#each burgers}}
+	    
+        {{#if devoured}}
+	      
+          <li>
+	        {{burger_name}}
+	      </li>
+	    
+        {{/if}}
+	  
+      {{/each}}
+	</ol>
+</div>
+
+
+
+
+
+
+
+
+
+
+{{!-- <h2>Cats that are sleepy!</h2>
+
+<ul>
+  {{#each cats}}
+    {{#if this.sleepy}}
+      <li>
+        {{this.name}}
+
+        <form action="/{{this.id}}?_method=PUT" method="POST">
+          <input type="hidden" name="sleepy" value="false">
+          <button type="submit">WAKE UP!</button>
+        </form>
+
+        {{> cats/delete-cat}}
+      </li>
+    {{/if}}
+  {{/each}}
+</ul>   --}}
+
+

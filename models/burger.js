@@ -14,16 +14,15 @@ var burger = {
     });
   },
   update: function(objColVals, condition, cb) {
-    orm.update("burgers", objColVals, condition, function(res) {
+    orm.update("burgers", condition, function(res) {
       cb(res);
     });
   },
-  "delete": function( condition, cb) { // could also call this remove instead of "delete"
-    orm.delete("burgers", condition, function(res) {
-      cb(res); // passing response from SQL to our callback to the "front" end
-    });
-  }
+//   "delete": function(condition, cb) { // could also call this remove instead of "delete"
+//     orm.delete("burgers", condition, function(res) {
+//       cb(res); // passing response from SQL to our callback to the "front" end
+//     });
+//   }
 };
-
 // Export the database functions for the controller (burgerController.js).
 module.exports = burger;
